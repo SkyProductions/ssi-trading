@@ -1,0 +1,134 @@
+﻿<Window x:Class="AutoTrading.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AutoTrading"
+        mc:Ignorable="d"
+        Title="Manually Trading" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        
+
+        <Grid Grid.Row="1" Margin="5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+            <Grid x:Name="token_stack" Margin="5,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Label Content="Token:"></Label>
+                    <TextBox x:Name="token_txt" IsReadOnly="True" MinLines="10" TextWrapping="Wrap" Grid.Column="1"></TextBox>
+                   
+                </Grid>
+
+                
+                
+                <Button Content="Authenticate" Grid.Row="1" Margin="5" Click="Button_Click"/>
+            </Grid>
+
+            <StackPanel x:Name="order_stack" IsEnabled="False" Orientation="Vertical" Grid.Column="1" Margin="5,0">
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Label Content="Account:"></Label>
+                    <TextBox x:Name="account_txt" Grid.Column="1"></TextBox>
+                </Grid>
+                
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Label Content="Market:"></Label>
+                    <ComboBox x:Name="cb_mảket" Grid.Column="1" Margin="5" SelectedIndex="0">
+                        <ComboBoxItem Content="Chứng Khoán"/>
+                        <ComboBoxItem Content="Phái sinh"/>
+                    </ComboBox>
+                </Grid>
+                
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Label Content="Mã CP:"></Label>
+                    <TextBox Grid.Column="1" x:Name="instrument_id" Text="SSI" Margin="5"></TextBox>
+                </Grid>
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Label Content="Mua/Bán:"></Label>
+                    <ComboBox x:Name="cb_buySell" Grid.Column="1" Margin="5" SelectedIndex="0">
+                        <ComboBoxItem Content="Mua"/>
+                        <ComboBoxItem Content="Bán"/>
+                    </ComboBox>
+                </Grid>
+
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Label Content="Loại lệnh:"></Label>
+                    <ComboBox x:Name="cb_orderType" Grid.Column="1" Margin="5" SelectedIndex="0">
+                        <ComboBoxItem Content="LO"/>
+                        <ComboBoxItem Content="ATO"/>
+                        <ComboBoxItem Content="ATC"/>
+                        <ComboBoxItem Content="MP"/>
+                        <ComboBoxItem Content="MTL"/>
+                        <ComboBoxItem Content="MOK"/>
+                        <ComboBoxItem Content="MAK"/>
+                        <ComboBoxItem Content="PLO"/>
+                    </ComboBox>
+                </Grid>
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Label Content="Giá:"></Label>
+                    <TextBox Grid.Column="1" x:Name="price_txt" Text="32500" Margin="5"></TextBox>
+                </Grid>
+
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Label Content="Số lượng:"></Label>
+                    <TextBox Grid.Column="1" x:Name="quantity_txt" Text="100" Margin="5"></TextBox>
+                </Grid>
+
+
+                <Button  Content="New Order" Click="New_Order_Click"/>
+
+                <TextBlock x:Name="tbl_status" Margin="5,10" TextWrapping="Wrap"></TextBlock>
+            </StackPanel>
+
+            
+        </Grid>
+        
+    </Grid>
+</Window>
